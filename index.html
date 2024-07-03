@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+   
+    <style>
+        body{
+            background-image: url('images/background.png');
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="test1.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="plants.html">Plants</a>
+    </div>
+
+    <div class="header">
+        <h1>Know the Crop That Best Suits Your Land</h1>
+    </div>
+
+    <div class="form-container">
+        <h2>NPK Ratio Form</h2>
+        <form id="plantForm">
+            <label for="nitrogen">Nitrogen:</label>
+            <input type="text" id="nitrogen" name="nitrogen" required>
+            
+            <label for="phosphorous">Phosphorous:</label>
+            <input type="text" id="phosphorous" name="phosphorous" required>
+            
+            <label for="potassium">Potassium:</label>
+            <input type="text" id="potassium" name="potassium" required>
+            
+            <input type="submit" value='Submit' />
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('plantForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let nitrogen = document.getElementById('nitrogen').value;
+            let phosphorous = document.getElementById('phosphorous').value;
+            let potassium = document.getElementById('potassium').value;
+            localStorage.setItem('nitrogen', nitrogen);
+            localStorage.setItem('phosphorous', phosphorous);
+            localStorage.setItem('potassium', potassium);
+            window.location.href = 'plants.html';
+        });
+    </script>
+</body>
+</html>
